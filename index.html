@@ -1,48 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section >
-        <p>Datos</p>
-        <div class="centrar">
-    <form id="formulario" >
+  <section>
+    <p>Datos</p>
+    <div class="centrar">
+      <form id="formulario">
         <input type="text" id="nombre" placeholder="Escribe tu nombre">
         <input type="text" id="apellido" placeholder="Escribe tu apellido">
-        <input type="text" id="carrera" list="browsers">
-    </form>
-    
-    <button  onclick="mostrar()">Registrar</button>
+        
+        <!-- Campo original con datalist -->
+        <input type="text" id="carrera" list="browsers" placeholder="Selecciona tu carrera">
+        
+        <!-- Fallback solo para móviles sin soporte -->
+        <select id="carrera_fallback" style="display:none;">
+          <option value="">Seleccione una opción</option>
+          <option value="Ingenieria de sistemas">Ingeniería de sistemas</option>
+          <option value="Ingenieria civil">Ingeniería civil</option>
+          <option value="Ingenieria industrial">Ingeniería industrial</option>
+          <option value="Turismo">Turismo</option>
+        </select>
+      </form>
+      <button onclick="mostrar()">Registrar</button>
     </div>
-<datalist id="browsers">
-  <option value="Ingenieria de sistemas">
-  <option value="Ingenieria civil">
-  <option value="Ingenieria industrial">
-  <option value="Turismo">
-</datalist>
 
-<!-- Fallback solo si el navegador no soporta datalist -->
-<select id="carrera_fallback" style="display:none;">
-  <option value="">Seleccione una opción</option>
-  <option value="Ingenieria de sistemas">Ingeniería de sistemas</option>
-  <option value="Ingenieria civil">Ingeniería civil</option>
-  <option value="Ingenieria industrial">Ingeniería industrial</option>
-  <option value="Turismo">Turismo</option>
-</select>
+    <datalist id="browsers">
+      <option value="Ingenieria de sistemas">
+      <option value="Ingenieria civil">
+      <option value="Ingenieria industrial">
+    <option value="Turismo">
+    </datalist>
 
     <div id="cuadro" class="modal">
-    <p id="mensaje"></p>
-    <button onclick="cerrar()">Cerrar</button>
-    </section>
+      <p id="mensaje"></p>
+      <button onclick="cerrar()">Cerrar</button>
+    </div>
+  </section>
 
-
-</div>
-
-
-    <script src="aprendiendoJS.js"></script>
+  <script src="aprendiendoJS.js"></script>
+  <script>
+    // Si el navegador no soporta datalist, se usa el select
+    if (!('list' in document.createElement('input')) || !window.HTMLDataListElement) {
+      document.getElementById('carrera').style.display = 'none';
+      document.getElementById('carrera_fallback').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
