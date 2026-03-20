@@ -19,10 +19,21 @@
     <button  onclick="mostrar()">Registrar</button>
     </div>
 <datalist id="browsers">
-        <option value="Ingenieria de sistemas">
-        <option value="Ingenieria civil">
-        <option value="Ingenieria industrial">
-    </datalist>
+  <option value="Ingenieria de sistemas">
+  <option value="Ingenieria civil">
+  <option value="Ingenieria industrial">
+  <option value="Turismo">
+</datalist>
+
+<!-- Fallback solo si el navegador no soporta datalist -->
+<select id="carrera_fallback" style="display:none;">
+  <option value="">Seleccione una opción</option>
+  <option value="Ingenieria de sistemas">Ingeniería de sistemas</option>
+  <option value="Ingenieria civil">Ingeniería civil</option>
+  <option value="Ingenieria industrial">Ingeniería industrial</option>
+  <option value="Turismo">Turismo</option>
+</select>
+
     <div id="cuadro" class="modal">
     <p id="mensaje"></p>
     <button onclick="cerrar()">Cerrar</button>
