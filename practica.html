@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section >
+        <p>Datos</p>
+        <div class="centrar">
+    <form id="formulario" >
+        <input type="text" id="nombre" placeholder="Escribe tu nombre">
+        <input type="text" id="apellido" placeholder="Escribe tu apellido">
+        <input type="text" id="carrera" list="browsers">
+    </form>
+    
+    <button  onclick="mostrar()">Registrar</button>
+    </div>
+<datalist id="browsers">
+        <option value="Ingenieria de sistemas">
+        <option value="Ingenieria civil">
+        <option value="Ingenieria industrial">
+    </datalist>
+    <div id="cuadro" class="modal">
+    <p id="mensaje"></p>
+    <button onclick="cerrar()">Cerrar</button>
+    </section>
+
+
+</div>
+
+
+    <script src="aprendiendoJS.js"></script>
+</body>
+</html>
